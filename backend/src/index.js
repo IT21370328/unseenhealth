@@ -10,25 +10,27 @@ dotenv.config();
 
 const app = express();
 
-// Railway provides PORT automatically
 const PORT = process.env.PORT || 5000;
 
-// Middleware
+// ✅ FIX 1: Better CORS for production (Vercel + Render)
 app.use(cors({
-  origin: '*', // later replace with your Vercel frontend URL
+  origin: [
+    'http://localhost:5173',
+    'https://unseenhealth.vercel.app' // replace with your real Vercel URL
+  ],
   credentials: true
 }));
 
 app.use(express.json());
 
-// Static uploads folder
+// Static files (for images)
 app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/api/articles', articleRoutes);
 app.use('/api/auth', authRoutes);
 
-// Health check route
+// Health check
 app.get('/', (req, res) => {
   res.send('Backend API is running...');
 });
@@ -37,7 +39,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// MongoDB connection + server start
+// ✅ FIX 2: MongoDB connection with safer options
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
