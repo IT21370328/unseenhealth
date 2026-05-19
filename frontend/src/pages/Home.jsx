@@ -11,7 +11,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/articles`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/articles`)
       .then((r) => r.json())
       .then((data) => { setArticles(data); setLoading(false); })
       .catch(() => { setError('Could not load articles.'); setLoading(false); });
@@ -77,10 +77,10 @@ export default function Home() {
             <div className="articles-grid">
               {articles.map((article) => {
                 const imageUrl = article.image?.startsWith('http')
-                  ? article.image
-                  : article.image
-                  ? `https://your-render-url.onrender.com${article.image}`
-                  : `https://picsum.photos/seed/${article._id}/800/500`;
+                    ? article.image
+                    : article.image
+                    ? `${import.meta.env.VITE_API_URL}${article.image}`
+                    : `https://picsum.photos/seed/${article._id}/800/500`;
                 return (
                   <div key={article._id} className="article-card" onClick={() => setSelected(article)}>
                     <img src={imageUrl} alt={article.title} onError={(e) => { e.target.src = 'https://picsum.photos/800/500'; }} />
