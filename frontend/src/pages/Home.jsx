@@ -79,7 +79,7 @@ export default function Home() {
                 const imageUrl = article.image?.startsWith('http')
                   ? article.image
                   : article.image
-                  ? `http://localhost:5000${article.image}`
+                  ? `https://your-render-url.onrender.com${article.image}`
                   : `https://picsum.photos/seed/${article._id}/800/500`;
                 return (
                   <div key={article._id} className="article-card" onClick={() => setSelected(article)}>

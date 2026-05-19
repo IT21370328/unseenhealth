@@ -14,7 +14,7 @@ export default function ArticleModal({ article, onClose }) {
   const imageUrl = article.image?.startsWith('http')
     ? article.image
     : article.image
-    ? `http://localhost:5000${article.image}`
+    ? `https://your-render-url.onrender.com${article.image}`
     : `https://picsum.photos/id/292/800/500`;
 
   return (
