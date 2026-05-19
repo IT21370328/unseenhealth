@@ -11,7 +11,7 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('/api/articles')
+    fetch(`${import.meta.env.VITE_API_URL}/api/articles`)
       .then((r) => r.json())
       .then((data) => { setArticles(data); setLoading(false); })
       .catch(() => { setError('Could not load articles.'); setLoading(false); });
