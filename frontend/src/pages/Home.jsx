@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import ArticleModal from '../components/ArticleModal.jsx';
-import Video from '../assets/video.mp4';
 import AboutImage from '../assets/image1.jpg';
 
 const BASE_URL = import.meta.env.VITE_API_URL ?? '';
@@ -56,7 +55,7 @@ export default function Home() {
       {/* Hero */}
       <section id="home" className="hero">
         <video autoPlay muted loop playsInline>
-          <source src={Video} type="video/mp4" />
+          <source src="https://res.cloudinary.com/du8hsjnef/video/upload/video_xfojrj.mp4" type="video/mp4" />
         </video>
         <div className="hero-overlay" />
         <div className="hero-content">
