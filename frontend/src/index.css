@@ -1,0 +1,144 @@
+:root { --accent: #00c4b4; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  color: #f5f5f7;
+  background: #0a0a0a;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
+  background: rgba(10,10,10,0.65); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif; font-size: 28px;
+  font-weight: 700; letter-spacing: -1px; text-decoration: none; color: white;
+}
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 1.05rem; transition: opacity 0.3s; }
+.nav-links a:hover { opacity: 0.7; }
+
+.facebook-icon { color: white; font-size: 1.5rem; transition: all 0.3s; text-decoration: none; }
+.facebook-icon:hover { color: var(--accent); transform: scale(1.15); }
+
+.hero {
+  height: 100vh; position: relative;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.hero video {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; object-fit: cover; z-index: -1;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.35), rgba(10,10,10,0.8)); z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: 6.5rem;
+  line-height: 1.05; letter-spacing: -3px; margin-bottom: 1.2rem;
+}
+.hero p { font-size: 1.55rem; max-width: 620px; margin: 0 auto 2.5rem; opacity: 0.95; }
+
+.btn {
+  background: white; color: black; padding: 16px 48px; border-radius: 60px;
+  font-size: 1.2rem; font-weight: 600; text-decoration: none;
+  display: inline-block; transition: all 0.4s ease; border: none; cursor: pointer;
+}
+.btn:hover { transform: scale(1.08); background: #00c4b4; color: white; }
+
+.highlight { color: var(--accent); }
+
+.section { padding: 120px 5%; max-width: 1280px; margin: 0 auto; }
+
+h2 {
+  font-family: 'Playfair Display', serif; font-size: 3.8rem;
+  text-align: center; margin-bottom: 4rem; line-height: 1.1;
+}
+
+.about { background: #0f0f0f; }
+.about .section { max-width: 1280px; }
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.about-text h2 { font-size: 3.6rem; line-height: 1.15; margin-bottom: 2rem; text-align: left; }
+.about-text p { font-size: 1.35rem; color: #ddd; margin-bottom: 2.5rem; }
+.quote-box { margin-top: 2.5rem; padding: 28px 32px; background: #1a1a1a; border-radius: 20px; border-left: 5px solid var(--accent); }
+.about-image { position: relative; }
+.about-image img { width: 100%; border-radius: 24px; box-shadow: 0 30px 70px rgba(0,0,0,0.7); }
+.stats-badge {
+  position: absolute; bottom: -30px; right: -30px;
+  background: #111; padding: 20px 28px; border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6); text-align: center;
+}
+
+.articles-section { background: #111; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
+
+.article-card {
+  background: #1a1a1a; border-radius: 20px; overflow: hidden;
+  transition: all 0.5s ease; cursor: pointer; text-decoration: none; color: inherit;
+  display: block;
+}
+.article-card:hover { transform: translateY(-15px); }
+.article-card img { width: 100%; height: 250px; object-fit: cover; }
+.card-content { padding: 32px; }
+.article-date { color: #888; font-size: 0.95rem; margin-bottom: 12px; }
+.card-content h3 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; }
+.card-content p { color: #aaa; font-size: 1rem; }
+.read-more { color: var(--accent); margin-top: 20px; display: inline-block; font-weight: 500; }
+
+/* Article modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+  z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-box {
+  background: #111; max-width: 800px; width: 100%;
+  max-height: 90vh; overflow-y: auto; border-radius: 24px; padding: 40px; position: relative;
+}
+.modal-close {
+  position: absolute; top: 20px; right: 30px; font-size: 2rem;
+  cursor: pointer; color: #aaa; background: none; border: none; line-height: 1;
+}
+.modal-box h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+.modal-box h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 2rem 0 0.75rem; text-align: left; }
+.modal-box p { color: #ccc; font-size: 1.05rem; margin-bottom: 1rem; }
+.modal-box ul { color: #ccc; font-size: 1.05rem; padding-left: 1.5rem; margin: 1rem 0; }
+.modal-box ul li { margin-bottom: 0.5rem; }
+.modal-box img { width: 100%; border-radius: 16px; margin-bottom: 2rem; }
+.modal-meta { color: #888; margin-bottom: 2rem; font-size: 0.95rem; }
+
+.contact-section { background: #111; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+.contact-grid h3 { font-size: 2.8rem; line-height: 1.2; font-family: 'Playfair Display', serif; }
+.contact-grid > div > p { font-size: 1.3rem; margin-top: 2rem; color: #bbb; }
+
+form input, form textarea {
+  width: 100%; background: #1f1f1f; border: none;
+  padding: 18px 24px; border-radius: 12px; color: white;
+  font-size: 1.1rem; margin-bottom: 20px; font-family: inherit; outline: none;
+}
+form input:focus, form textarea:focus { outline: 1px solid var(--accent); }
+
+.btn-accent { background: var(--accent); color: black; width: 100%; }
+.btn-accent:hover { background: white; color: black; }
+
+footer { background: #0a0a0a; text-align: center; padding: 80px 20px 40px; color: #666; }
+footer a { color: var(--accent); text-decoration: none; }
+
+.loading { text-align: center; padding: 4rem; color: #888; font-size: 1.2rem; }
+.error-msg { text-align: center; padding: 4rem; color: #ff6b6b; }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 3.5rem; }
+  .about-content, .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+  .stats-badge { position: static; margin-top: 20px; }
+  .nav-links { gap: 1.2rem; }
+  .nav-links a { font-size: 0.95rem; }
+}
