@@ -74,44 +74,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
-      <div className="about">
-        <section id="about" className="section">
-          <div className="about-content">
-            <div className="about-text">
-              <h2>
-                We believe everyone deserves{' '}
-                <span className="highlight">simple, honest health guidance</span>.
-              </h2>
-              <p>
-                Unseen Health started as a small Facebook page in Sri Lanka with one goal:
-                to make reliable health information easy to understand for ordinary people.
-              </p>
-              <div className="quote-box">
-                <p style={{ fontStyle: 'italic', color: '#ccc', fontSize: '1.25rem' }}>
-                  "Health shouldn't be a luxury or a mystery. It should be simple, accessible, and full of hope."
-                </p>
-                <p style={{ marginTop: '1rem', color: 'var(--accent)', fontWeight: 500 }}>
-                  — Founder, Unseen Health
-                </p>
-              </div>
-            </div>
-            <div className="about-image">
-              <img
-                src={AboutImage}
-                alt="Our Story"
-                onError={(e) => { e.target.src = 'https://picsum.photos/id/1025/600/500'; }}
-              />
-              <div className="stats-badge">
-                <div style={{ fontSize: '2.4rem', fontWeight: 700, color: 'var(--accent)' }}>
-                  {articles.length > 0 ? `${articles.length}+` : '500+'}
-                </div>
-                <div style={{ color: '#aaa', fontSize: '1rem' }}>Health Articles</div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
 
       {/* Articles */}
       <div className="articles-section">
@@ -162,6 +124,46 @@ export default function Home() {
         </section>
       </div>
 
+      {/* About */}
+      <div className="about">
+        <section id="about" className="section">
+          <div className="about-content">
+            <div className="about-text">
+              <h2>
+                We believe everyone deserves{' '}
+                <span className="highlight">simple, honest health guidance</span>.
+              </h2>
+              <p>
+                Unseen Health started as a small Facebook page in Sri Lanka with one goal:
+                to make reliable health information easy to understand for ordinary people.
+              </p>
+              <div className="quote-box">
+                <p style={{ fontStyle: 'italic', color: '#ccc', fontSize: '1.25rem' }}>
+                  "Health shouldn't be a luxury or a mystery. It should be simple, accessible, and full of hope."
+                </p>
+                <p style={{ marginTop: '1rem', color: 'var(--accent)', fontWeight: 500 }}>
+                  — Founder, Unseen Health
+                </p>
+              </div>
+            </div>
+            <div className="about-image">
+              <img
+                src={AboutImage}
+                alt="Our Story"
+                onError={(e) => { e.target.src = 'https://picsum.photos/id/1025/600/500'; }}
+              />
+              <div className="stats-badge">
+                <div style={{ fontSize: '2.4rem', fontWeight: 700, color: 'var(--accent)' }}>
+                  {articles.length > 0 ? `${articles.length}+` : '500+'}
+                </div>
+                <div style={{ color: '#aaa', fontSize: '1rem' }}>Health Articles</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      
       {/* Contact */}
       <div className="contact-section">
         <section id="contact" className="section">
