@@ -124,6 +124,19 @@ export default function Home() {
         </section>
       </div>
 
+      {/* Adsterra Native Banner */}
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0', background: '#0a0a0a' }}>
+        <div dangerouslySetInnerHTML={{ __html: `
+          <script async="async" data-cfasync="false" 
+            src="https://pl29507786.effectivecpmnetwork.com/4e84b3e1e78ca6655e797f48403e60bd/invoke.js">
+          </script>
+          <div id="container-4e84b3e1e78ca6655e797f48403e60bd"></div>
+        `}} />
+      </div>
+
+      {/* Contact */}
+      <div className="contact-section"></div>
+
       {/* About */}
       <div className="about">
         <section id="about" className="section">
@@ -163,7 +176,7 @@ export default function Home() {
         </section>
       </div>
 
-      
+
       {/* Contact */}
       <div className="contact-section">
         <section id="contact" className="section">
