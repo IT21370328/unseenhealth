@@ -41,19 +41,7 @@ export default function Home() {
       });
   }, []);
 
-  // Adsterra script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://pl29507786.effectivecpmnetwork.com/4e84b3e1e78ca6655e797f48403e60bd/invoke.js';
-    script.async = true;
-    script.setAttribute('data-cfasync', 'false');
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+
 
   const handleContact = useCallback((e) => {
     e.preventDefault();
@@ -138,10 +126,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Adsterra Native Banner */}
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0', background: '#0a0a0a' }}>
-        <div id="container-4e84b3e1e78ca6655e797f48403e60bd" />
-      </div>
 
       {/* About */}
       <div className="about">
