@@ -17,6 +17,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // Fetch articles
   useEffect(() => {
     if (!BASE_URL) {
       setError('API URL is not configured.');
@@ -38,6 +39,20 @@ export default function Home() {
         setLoading(false);
         console.error('Fetch error:', err);
       });
+  }, []);
+
+  // Adsterra script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://pl29507786.effectivecpmnetwork.com/4e84b3e1e78ca6655e797f48403e60bd/invoke.js';
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    document.body.appendChild(script);
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
   }, []);
 
   const handleContact = useCallback((e) => {
@@ -73,7 +88,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
 
       {/* Articles */}
       <div className="articles-section">
@@ -126,16 +140,8 @@ export default function Home() {
 
       {/* Adsterra Native Banner */}
       <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0', background: '#0a0a0a' }}>
-        <div dangerouslySetInnerHTML={{ __html: `
-          <script async="async" data-cfasync="false" 
-            src="https://pl29507786.effectivecpmnetwork.com/4e84b3e1e78ca6655e797f48403e60bd/invoke.js">
-          </script>
-          <div id="container-4e84b3e1e78ca6655e797f48403e60bd"></div>
-        `}} />
+        <div id="container-4e84b3e1e78ca6655e797f48403e60bd" />
       </div>
-
-      {/* Contact */}
-      <div className="contact-section"></div>
 
       {/* About */}
       <div className="about">
@@ -175,7 +181,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-
 
       {/* Contact */}
       <div className="contact-section">
